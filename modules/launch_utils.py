@@ -11,6 +11,7 @@ import platform
 import json
 import shlex
 from functools import lru_cache
+import fileinput
 
 from modules import cmd_args, errors
 from modules.paths_internal import script_path, extensions_dir
@@ -413,6 +414,13 @@ def prepare_environment():
     git_clone(stable_diffusion_xl_repo, repo_dir('generative-models'), "Stable Diffusion XL", stable_diffusion_xl_commit_hash)
     git_clone(k_diffusion_repo, repo_dir('k-diffusion'), "K-diffusion", k_diffusion_commit_hash)
     git_clone(blip_repo, repo_dir('BLIP'), "BLIP", blip_commit_hash)
+
+    file_path = "repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
+    old_string = "pytorch_lightning.utilities.distributed"
+    new_string = "pytorch_lightning.utilities.rank_zero"
+
+    for line in fileinput.input(file_path, inplace=True):
+        print(line.replace(old_string, new_string), end="")
 
     startup_timer.record("clone repositores")
 

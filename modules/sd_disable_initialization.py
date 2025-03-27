@@ -63,7 +63,7 @@ class DisableInitialization(ReplaceHelper):
 
         def create_model_and_transforms_without_pretrained(*args, pretrained=None, **kwargs):
             return self.create_model_and_transforms(*args, pretrained=None, **kwargs)
-        
+            
 
         def CLIPTextModel_from_pretrained(self, pretrained_model_name_or_path, *model_args, **kwargs):
             res = self.CLIPTextModel.from_pretrained(pretrained_model_name_or_path, *model_args, **kwargs)
