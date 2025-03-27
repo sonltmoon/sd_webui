@@ -35,4 +35,4 @@ transformers
 pillow-avif-plugin
 basicsr
 bitsandbytes
-requests
+xformers
