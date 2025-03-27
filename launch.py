@@ -39,6 +39,12 @@ def main():
     with launch_utils.startup_timer.subcategory("prepare environment"):
         if not args.skip_prepare_environment:
             prepare_environment()
+            file_path = "repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
+            old_string = "pytorch_lightning.utilities.distributed"
+            new_string = "pytorch_lightning.utilities.rank_zero"
+
+            for line in fileinput.input(file_path, inplace=True):
+                print(line.replace(old_string, new_string), end="")
 
     if args.test_server:
         configure_for_tests()
@@ -47,11 +53,4 @@ def main():
 
 
 if __name__ == "__main__":
-    file_path = "repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
-    old_string = "pytorch_lightning.utilities.distributed"
-    new_string = "pytorch_lightning.utilities.rank_zero"
-
-    for line in fileinput.input(file_path, inplace=True):
-        print(line.replace(old_string, new_string), end="")
-
     main()
