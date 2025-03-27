@@ -73,7 +73,7 @@ def Blocks_get_config_file(self, *args, **kwargs):
 
     return config
 
-original_Component_init = patches.patch(__name__, obj=gr.components.Component, field="__init__", replacement=IOComponent_init)
+original_IOComponent_init = patches.patch(__name__, obj=gr.components.Component, field="__init__", replacement=IOComponent_init)
 # original_IOComponent_init = patches.patch(__name__, obj=gr.components.IOComponent, field="__init__", replacement=IOComponent_init)
 original_Block_get_config = patches.patch(__name__, obj=gr.blocks.Block, field="get_config", replacement=Block_get_config)
 original_BlockContext_init = patches.patch(__name__, obj=gr.blocks.BlockContext, field="__init__", replacement=BlockContext_init)
