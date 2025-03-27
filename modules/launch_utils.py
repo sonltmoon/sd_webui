@@ -390,21 +390,21 @@ def prepare_environment():
         )
     startup_timer.record("torch GPU test")
 
-    if not is_installed("clip"):
-        run_pip(f"install {clip_package}", "clip")
-        startup_timer.record("install clip")
+    # if not is_installed("clip"):
+    #     run_pip(f"install {clip_package}", "clip")
+    #     startup_timer.record("install clip")
 
-    if not is_installed("open_clip"):
-        run_pip(f"install {openclip_package}", "open_clip")
-        startup_timer.record("install open_clip")
+    # if not is_installed("open_clip"):
+    #     run_pip(f"install {openclip_package}", "open_clip")
+    #     startup_timer.record("install open_clip")
 
-    if (not is_installed("xformers") or args.reinstall_xformers) and args.xformers:
-        run_pip(f"install -U -I --no-deps {xformers_package}", "xformers")
-        startup_timer.record("install xformers")
+    # if (not is_installed("xformers") or args.reinstall_xformers) and args.xformers:
+    #     run_pip(f"install -U -I --no-deps {xformers_package}", "xformers")
+    #     startup_timer.record("install xformers")
 
-    if not is_installed("ngrok") and args.ngrok:
-        run_pip("install ngrok", "ngrok")
-        startup_timer.record("install ngrok")
+    # if not is_installed("ngrok") and args.ngrok:
+    #     run_pip("install ngrok", "ngrok")
+    #     startup_timer.record("install ngrok")
 
     os.makedirs(os.path.join(script_path, dir_repos), exist_ok=True)
 
@@ -419,16 +419,16 @@ def prepare_environment():
     if not os.path.isfile(requirements_file):
         requirements_file = os.path.join(script_path, requirements_file)
 
-    if not requirements_met(requirements_file):
-        run_pip(f"install -r \"{requirements_file}\"", "requirements")
-        startup_timer.record("install requirements")
+    # if not requirements_met(requirements_file):
+    #     run_pip(f"install -r \"{requirements_file}\"", "requirements")
+    #     startup_timer.record("install requirements")
 
     if not os.path.isfile(requirements_file_for_npu):
         requirements_file_for_npu = os.path.join(script_path, requirements_file_for_npu)
 
-    if "torch_npu" in torch_command and not requirements_met(requirements_file_for_npu):
-        run_pip(f"install -r \"{requirements_file_for_npu}\"", "requirements_for_npu")
-        startup_timer.record("install requirements_for_npu")
+    # if "torch_npu" in torch_command and not requirements_met(requirements_file_for_npu):
+    #     run_pip(f"install -r \"{requirements_file_for_npu}\"", "requirements_for_npu")
+    #     startup_timer.record("install requirements_for_npu")
 
     if not args.skip_install:
         run_extensions_installers(settings_file=args.ui_settings_file)
