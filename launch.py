@@ -1,4 +1,6 @@
 from modules import launch_utils
+import fileinput
+
 
 args = launch_utils.args
 python = launch_utils.python
@@ -45,4 +47,11 @@ def main():
 
 
 if __name__ == "__main__":
+    file_path = "repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
+    old_string = "pytorch_lightning.utilities.distributed"
+    new_string = "pytorch_lightning.utilities.rank_zero"
+
+    for line in fileinput.input(file_path, inplace=True):
+        print(line.replace(old_string, new_string), end="")
+
     main()

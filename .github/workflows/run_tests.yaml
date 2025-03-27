@@ -27,7 +27,7 @@ jobs:
           path: models
           key: "2023-12-30"
       - name: Install test dependencies
-        run: pip install wait-for-it -r requirements-test.txt
+        run: uv pip install wait-for-it -r requirements-test.txt
         env:
           PIP_DISABLE_PIP_VERSION_CHECK: "1"
           PIP_PROGRESS_BAR: "off"

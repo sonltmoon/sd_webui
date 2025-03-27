@@ -42,7 +42,7 @@ echo Unable to create venv in directory "%VENV_DIR%"
 goto :show_stdout_stderr
 
 :upgrade_pip
-"%VENV_DIR%\Scripts\Python.exe" -m pip install --upgrade pip
+"%VENV_DIR%\Scripts\Python.exe" -m uv pip install --upgrade pip
 if %ERRORLEVEL% == 0 goto :activate_venv
 echo Warning: Failed to upgrade PIP version
 
