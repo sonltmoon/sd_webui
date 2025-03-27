@@ -11,8 +11,8 @@ diskcache
 einops
 facexlib
 fastapi
-gradio
-# ==3.50.2 3.41.2
+gradio==3.41.2
+gradio_client==0.5.0
 inflection
 jsonmerge
 kornia
@@ -34,6 +34,11 @@ torchdiffeq
 torchsde
 transformers
 pillow-avif-plugin
+
 basicsr
 bitsandbytes
 xformers
+
+mediapipe==0.10.15
+ultralytics==8.3.97
+ultralytics-thop==2.0.14
