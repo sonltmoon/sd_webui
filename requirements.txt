@@ -33,3 +33,5 @@ torchdiffeq
 torchsde
 transformers
 pillow-avif-plugin
+basicsr
+bitsandbytes
