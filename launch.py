@@ -39,7 +39,7 @@ def main():
     with launch_utils.startup_timer.subcategory("prepare environment"):
         if not args.skip_prepare_environment:
             prepare_environment()
-            file_path = "repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
+            file_path = "./repositories/stable-diffusion-stability-ai/ldm/models/diffusion/ddpm.py"
             old_string = "pytorch_lightning.utilities.distributed"
             new_string = "pytorch_lightning.utilities.rank_zero"
 
