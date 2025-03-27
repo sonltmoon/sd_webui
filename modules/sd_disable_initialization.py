@@ -63,11 +63,13 @@ class DisableInitialization(ReplaceHelper):
 
         def create_model_and_transforms_without_pretrained(*args, pretrained=None, **kwargs):
             return self.create_model_and_transforms(*args, pretrained=None, **kwargs)
+        
 
-        def CLIPTextModel_from_pretrained(pretrained_model_name_or_path, *model_args, **kwargs):
-            res = self.CLIPTextModel_from_pretrained(None, *model_args, config=pretrained_model_name_or_path, state_dict={}, **kwargs)
+        def CLIPTextModel_from_pretrained(self, pretrained_model_name_or_path, *model_args, **kwargs):
+            res = self.CLIPTextModel.from_pretrained(pretrained_model_name_or_path, *model_args, **kwargs)
             res.name_or_path = pretrained_model_name_or_path
             return res
+
 
         def transformers_modeling_utils_load_pretrained_model(*args, **kwargs):
             args = args[0:3] + ('/', ) + args[4:]  # resolved_archive_file; must set it to something to prevent what seems to be a bug
