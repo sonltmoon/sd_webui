@@ -11,14 +11,14 @@ diskcache
 einops
 facexlib
 fastapi
-gradio==3.41.2
+gradio #==3.41.2
 inflection
 jsonmerge
 kornia
 lark
 omegaconf
 open-clip-torch
-insightface==0.7.3
+insightface #==0.7.3
 piexif
 protobuf
 psutil
