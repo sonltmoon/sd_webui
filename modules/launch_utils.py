@@ -330,14 +330,14 @@ def prepare_environment():
             #   - Provides a compatible torchvision wheel: https://github.com/intel/intel-extension-for-pytorch/issues/465
             # Limitation:
             #   - Only works for python 3.10
-            url_prefix = "https://github.com/Nuullll/intel-extension-for-pytorch/releases/download/v2.0.110%2Bxpu-master%2Bdll-bundle"
-            torch_command = os.environ.get('TORCH_COMMAND', f"uv pip install --system {url_prefix}/torch-2.0.0a0+gite9ebda2-cp310-cp310-win_amd64.whl {url_prefix}/torchvision-0.15.2a0+fa99a53-cp310-cp310-win_amd64.whl {url_prefix}/intel_extension_for_pytorch-2.0.110+gitc6ea20b-cp310-cp310-win_amd64.whl")
+            url_prefix = "https://github.com/Nuullll/intel-extension-for-pytorch/releases/download/v2.1.20%2Bmtl%2Boneapi"
+            torch_command = os.environ.get('TORCH_COMMAND', f"uv pip install --system {url_prefix}/torch-2.1.0a0+git7bcf7da-cp310-cp310-win_amd64.whl {url_prefix}/torchvision-0.16.0+fbb4cc5-cp310-cp310-win_amd64.whl {url_prefix}/intel_extension_for_pytorch-2.1.20+git4849f3b-cp310-cp310-win_amd64.whl")
         else:
             # Using official IPEX release for linux since it's already an AOT build.
             # However, users still have to install oneAPI toolkit and activate oneAPI environment manually.
             # See https://intel.github.io/intel-extension-for-pytorch/index.html#installation for details.
             torch_index_url = os.environ.get('TORCH_INDEX_URL', "https://pytorch-extension.intel.com/release-whl/stable/xpu/us/")
-            torch_command = os.environ.get('TORCH_COMMAND', f"uv pip install --system torch==2.0.0a0 intel-extension-for-pytorch==2.0.110+gitba7f6c1 --extra-index-url {torch_index_url}")
+            torch_command = os.environ.get('TORCH_COMMAND', f"uv pip install --system torch==2.5.1 intel-extension-for-pytorch==2.6.10+xpu --extra-index-url {torch_index_url}")
     requirements_file = os.environ.get('REQS_FILE', "requirements_versions.txt")
     requirements_file_for_npu = os.environ.get('REQS_FILE_FOR_NPU', "requirements_npu.txt")
 
@@ -377,9 +377,9 @@ def prepare_environment():
     print(f"Version: {tag}")
     print(f"Commit hash: {commit}")
 
-    # if args.reinstall_torch or not is_installed("torch") or not is_installed("torchvision"):
-    #     run(f'"{python}" -m {torch_command}', "Installing torch and torchvision", "Couldn't install torch", live=True)
-    #     startup_timer.record("install torch")
+    if args.reinstall_torch or not is_installed("torch") or not is_installed("torchvision"):
+        run(f'"{python}" -m {torch_command}', "Installing torch and torchvision", "Couldn't install torch", live=True)
+        startup_timer.record("install torch")
 
     if args.use_ipex:
         args.skip_torch_cuda_test = True
