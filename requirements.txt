@@ -18,7 +18,7 @@ kornia
 lark
 omegaconf
 open-clip-torch
-insightface
+insightface==0.7.3
 piexif
 protobuf
 psutil
