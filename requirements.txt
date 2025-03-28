@@ -40,9 +40,17 @@ pillow-avif-plugin
 basicsr
 bitsandbytes
 xformers
-wandb==0.15.12
+wandb #==0.15.12
 pydantic==1.10.7
 mediapipe #==0.10.15
 ultralytics #==8.3.97
 ultralytics-thop #==2.0.14
 
+dadaptation
+fastapi
+timm
+controlnet_aux
+onnxruntime
+pycloudflared
+pytorch_optimizer
+discord-webhook
