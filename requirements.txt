@@ -34,7 +34,7 @@ torchdiffeq
 torchsde
 transformers
 pillow-avif-plugin
-
+--index-url https://download.pytorch.org/whl/cu121
 basicsr
 bitsandbytes
 xformers
