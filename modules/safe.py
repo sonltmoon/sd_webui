@@ -153,7 +153,7 @@ def load_with_extra(filename, extra_handler=None, *args, **kwargs):
         )
         return None
 
-    return unsafe_torch_load(filename, *args, **kwargs)
+    return unsafe_torch_load(filename, *args, **kwargs, weights_only=True)
 
 
 class Extra:
