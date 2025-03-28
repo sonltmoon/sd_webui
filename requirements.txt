@@ -40,7 +40,7 @@ bitsandbytes
 xformers
 
 # ==1.10.7
-pydantic
+pydantic<2
 mediapipe==0.10.15
 ultralytics==8.3.97
 ultralytics-thop==2.0.14
