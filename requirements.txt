@@ -11,7 +11,7 @@ diskcache
 einops
 facexlib
 fastapi
-gradio #==3.41.2
+gradio==3.41.2
 inflection
 jsonmerge
 kornia
@@ -28,7 +28,7 @@ resize-right
 safetensors
 scikit-image
 tomesd
-torch==2.1.2
+torch==2.1.2 --index-url https://download.pytorch.org/whl/cu121
 torchdiffeq
 torchsde
 transformers
@@ -41,4 +41,3 @@ pydantic<2
 mediapipe #==0.10.15
 ultralytics #==8.3.97
 ultralytics-thop #==2.0.14
---index-url https://download.pytorch.org/whl/cu121
