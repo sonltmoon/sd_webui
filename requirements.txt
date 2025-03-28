@@ -1,7 +1,7 @@
 --index-url https://pypi.org/simple
 --extra-index-url https://download.pytorch.org/whl/cu12
 
-numpy==1.26.4
+numpy #==1.26.4
 git+https://github.com/openai/CLIP.git
 GitPython
 Pillow
@@ -53,5 +53,5 @@ timm
 controlnet_aux
 onnxruntime
 pycloudflared
-pytorch_optimizer
-discord-webhook
+pytorch_optimizer==3.4.0
+discord-webhook==1.3.1
