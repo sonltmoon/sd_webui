@@ -565,7 +565,7 @@ def train_hypernetwork(id_task, hypernetwork_name: str, learn_rate: float, batch
             print("Cannot resume from saved optimizer!")
             print(e)
 
-    scaler = torch.cuda.amp.GradScaler('cuda')
+    scaler = torch.amp.GradScaler()
 
     batch_size = ds.batch_size
     gradient_step = ds.gradient_step
