@@ -1,10 +1,12 @@
+--index-url https://pypi.org/simple
+--extra-index-url https://download.pytorch.org/whl/cu12
+
 numpy==1.26.4
 git+https://github.com/openai/CLIP.git
 GitPython
 Pillow
 ngrok
 accelerate
-open_clip_torch
 blendmodes
 clean-fid
 diskcache
@@ -12,13 +14,14 @@ einops
 facexlib
 fastapi
 gradio==3.41.2
+gradio_client==0.5.0
 inflection
 jsonmerge
 kornia
 lark
 omegaconf
 open-clip-torch
-insightface #==0.7.3
+insightface
 piexif
 protobuf
 psutil
@@ -28,16 +31,19 @@ resize-right
 safetensors
 scikit-image
 tomesd
-torch==2.1.2 --index-url https://download.pytorch.org/whl/cu121
+torch
 torchdiffeq
 torchsde
 transformers
 pillow-avif-plugin
+
 basicsr
 bitsandbytes
 xformers
-wandb==0.15.*
-pydantic<2
+
+# ==1.10.7
+pydantic
 mediapipe #==0.10.15
 ultralytics #==8.3.97
 ultralytics-thop #==2.0.14
+
